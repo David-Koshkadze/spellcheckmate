@@ -1,5 +1,6 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
+import AvatarDropdown from "./components/Header/AvatarDropdown";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             <button className="btn btn-primary">Upgrade to Pro</button>
           </div>
           {/* Dropdown */}
-          <div className="avatar-dropdown"></div>
+          <AvatarDropdown />
         </nav>
       </header>
 
