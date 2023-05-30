@@ -21,7 +21,22 @@ function App() {
       </header>
 
       <div className="sidebar">
-        <div>Hello</div>
+        <div className="sidebar__options__wrapper">
+          <div className="sidebar__options__item active">
+            <div>ICO</div>
+            <span>Spellcheker</span>
+          </div>
+
+          <div className="sidebar__options__item">
+            <div>ICO</div>
+            <span>Spellcheker</span>
+          </div>
+
+          <div className="sidebar__options__item">
+            <div>ICO</div>
+            <span>Spellcheker</span>
+          </div>
+        </div>
       </div>
 
       <section className="section-container">
