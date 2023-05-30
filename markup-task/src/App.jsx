@@ -6,6 +6,16 @@ import LanguageDropdown from "./components/LanguageDropdown";
 import { ReactComponent as CopyIcon } from "./assets/icons/copy-icon.svg";
 import { ReactComponent as DeleteIcon } from "./assets/icons/delete-icon.svg";
 
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
+const modules = {
+  toolbar: [
+    ["bold", "italic", "underline"],
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  ],
+};
+
 function App() {
   return (
     <>
@@ -44,6 +54,14 @@ function App() {
             <div style={{ color: "#CCCACA" }}>|</div>
             <LanguageDropdown />
           </div>
+        </div>
+
+        <div className="editor__container">
+          <ReactQuill
+            modules={modules}
+            theme="snow"
+            placeholder="Type or paste (⌘+V) something here."
+          />
         </div>
       </section>
     </>

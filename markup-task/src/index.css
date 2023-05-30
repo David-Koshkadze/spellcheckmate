@@ -100,3 +100,19 @@ body {
   line-height: 28px;
   color: #606060;
 }
+
+/* Overwrite Quill's default styles */
+.quill {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 500px;
+}
+
+.ql-toolbar.ql-snow {
+  border: none;
+  border-top: 1px solid #EDEDED;
+}
+
+.ql-container.ql-snow {
+  border: none;
+}
