@@ -7,7 +7,8 @@
 
   --cl-primary: #2d62ed;
   --cl-secondary: #dfdfdf;
-  --bg: #cdcdcd;
+  /* --bg: #cdcdcd; */
+  --bg: #f8f8f8;
 }
 
 * {
@@ -49,4 +50,53 @@ body {
   background-color: #ffffff;
   color: #4b4b4b;
   border-radius: 0.5rem;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.btn-tool {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #606060;
+  border: none;
+  padding: 4px 17px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-tool span {
+  font-size: 12px;
+  line-height: 28px;
+}
+
+.btn-tool:hover {
+  background-color: #ededed;
+  color: var(--cl-primary);
+}
+
+.text-sm {
+  font-size: 12px;
+  line-height: 28px;
+  color: #606060;
 }

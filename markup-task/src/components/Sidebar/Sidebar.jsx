@@ -1,20 +1,21 @@
 import React from "react";
 import SidebarItem from "./SidebarItem";
 
+import { ReactComponent as CheckABCIcon } from "../../assets/icons/check-abc.svg";
+import { ReactComponent as VoicePrintIcon } from "../../assets/icons/voiceprint-icon.svg";
+import { ReactComponent as WebcamIcon } from "../../assets/icons/webcam-icon.svg";
+
 export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__options__wrapper">
         <SidebarItem
-          icon={"/icons/check-abc.svg"}
+          icon={<CheckABCIcon />}
           text="Spellchecker"
-          active={true}
+          // active={true}
         />
-        <SidebarItem
-          icon={"/icons/voiceprint-line.svg"}
-          text="Text to speech"
-        />
-        <SidebarItem icon={"/icons/webcam-line.svg"} text="Speech to text" />
+        <SidebarItem icon={<VoicePrintIcon />} text="Text to speech" active={true}/>
+        <SidebarItem icon={<WebcamIcon />} text="Speech to text" />
       </div>
 
       {/* Settings */}
