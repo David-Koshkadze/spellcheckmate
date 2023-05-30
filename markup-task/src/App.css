@@ -198,3 +198,7 @@ header {
   margin-top: 1rem;
   margin-left: 2rem;
 }
+
+.editor__count__box {
+  background-color: #fff;
+}
