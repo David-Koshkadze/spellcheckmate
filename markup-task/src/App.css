@@ -26,9 +26,10 @@ header {
   background-color: var(--cl-primary);
   position: fixed;
   width: 177px;
-  height: 100%;
+  height: calc(100% - 80px);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding-left: 0.75rem;
 }
 
@@ -48,6 +49,9 @@ header {
   position: relative;
   font-size: 12px;
   padding-left: 1rem;
+}
+
+.sidebar__options__item img {
 }
 
 .sidebar__options__item.active {
@@ -79,6 +83,41 @@ header {
   background-image: url("icons/Vector-7.svg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Sidebar Settings */
+
+.sidebar__settings__wrapper {
+  border-top: 2px solid #9eb9ff;
+  border-bottom: 2px solid #9eb9ff;
+  padding: 2.5rem 0 2.5rem 0.5rem;
+  margin-right: 1.3rem;
+}
+
+.sidebar__settings__wrapper ul {
+  list-style: none;
+}
+
+.sidebar__settings__wrapper ul li {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.sidebar__settings__wrapper ul li:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.theme-switch__wrapper {
+  background-color: white;
+  margin: 3rem auto;
+  width: 52px;
+  height: 25px;
 }
 
 /* Section */

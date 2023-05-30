@@ -1,4 +1,5 @@
 import "./App.css";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
@@ -20,24 +21,9 @@ function App() {
         </nav>
       </header>
 
-      <div className="sidebar">
-        <div className="sidebar__options__wrapper">
-          <div className="sidebar__options__item active">
-            <div>ICO</div>
-            <span>Spellcheker</span>
-          </div>
-
-          <div className="sidebar__options__item">
-            <div>ICO</div>
-            <span>Spellcheker</span>
-          </div>
-
-          <div className="sidebar__options__item">
-            <div>ICO</div>
-            <span>Spellcheker</span>
-          </div>
-        </div>
-      </div>
+      {/* Sidebar */}
+      <Sidebar />
+      
 
       <section className="section-container">
         <button className="btn btn-primary">Check</button>

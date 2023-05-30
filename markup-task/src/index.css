@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../public/fonts/Inter-VariableFont.ttf");
+  src: url("/fonts/Inter-VariableFont.ttf");
 }
 
 body {
