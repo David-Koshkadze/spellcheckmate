@@ -5,13 +5,48 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --cl-primary: #2D62ED;
-  --bg: #CDCDCD;
+  --cl-primary: #2d62ed;
+  --cl-secondary: #dfdfdf;
+  --bg: #cdcdcd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../public/fonts/Inter-VariableFont.ttf");
 }
 
 body {
+  font-family: "Inter";
   background-color: var(--bg);
+  font-size: 16px;
 }
 
+.btn {
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 4px 20px;
+  font-size: 14px;
+  line-height: 28px;
+  cursor: pointer;
+  font-family: "Inter";
+}
 
+.btn-primary {
+  background-color: var(--cl-primary);
+  color: #ffffff;
+  font-weight: 600;
+}
 
+.btn-secondary {
+  border: 1px solid var(--cl-secondary);
+  background-color: #ffffff;
+  color: #4b4b4b;
+  border-radius: 0.5rem;
+}
