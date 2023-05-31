@@ -32,44 +32,55 @@ class Counter {
   }
 }
 
-const modules = {
-  toolbar: [
-    ["bold", "italic", "underline"],
-    [{ list: "ordered" }, { list: "bullet" }],
-    [{ header: 1 }, { header: 2 }],
-    ["link"],
-    ["clean"],
-  ],
-  // counter: {
-  //   container: '#text-counter',
-  //   unit: 'character'
-  // }
+const CustomToolbar = () => {
+  return (
+    <div id="toolbar">
+      <button className="ql-bold"></button>
+      <button className="ql-italic"></button>
+      <button className="ql-underline">IC</button>
+      <button className="ql-list" value="ordered"></button>
+      <button className="ql-list" value="bullet"></button>
+      <button className="ql-header-1"></button>
+      <button className="ql-header-2"></button>
+    </div>
+  );
 };
 
 export default function TextEditor() {
-  const editorRef = useRef(null);
-  const counterRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (editorRef.current) {
-  //     const quill = editorRef.current.getEditor();
-  //     Quill.register("modules/counter", Counter, true);
-  //     quill.getModule("toolbar").addHandler("counter", () => {});
-  //     quill.addContainer("counter", counterRef.current);
-  //   }
-  // }, []);
-
   return (
     <div className="editor__container">
       <ReactQuill
-        ref={editorRef}
-        modules={modules}
+        modules={TextEditor.modules}
         theme="snow"
         placeholder="Type or paste (⌘+V) something here."
       />
-      <div className="editor__count__box" id="text-counter" ref={counterRef}>
+      <CustomToolbar />
+      <div className="editor__count__box" id="text-counter">
         12 Characters, 3 words
       </div>
     </div>
   );
 }
+
+TextEditor.modules = {
+  toolbar: {
+    container: "#toolbar",
+  },
+};
+
+TextEditor.formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+  "image",
+  "color",
+];

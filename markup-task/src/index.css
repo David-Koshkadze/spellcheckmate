@@ -105,7 +105,7 @@ body {
 .quill {
   display: flex;
   flex-direction: column-reverse;
-  height: calc(100vh - 16.65rem);
+  height: calc(100vh - 20rem);
 }
 
 .ql-toolbar.ql-snow {
