@@ -4,6 +4,7 @@ import SidebarItem from "./SidebarItem";
 import { ReactComponent as CheckABCIcon } from "../../assets/icons/check-abc.svg";
 import { ReactComponent as VoicePrintIcon } from "../../assets/icons/voiceprint-icon.svg";
 import { ReactComponent as WebcamIcon } from "../../assets/icons/webcam-icon.svg";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 export default function Sidebar() {
   return (
@@ -14,7 +15,7 @@ export default function Sidebar() {
           text="Spellchecker"
           active={true}
         />
-        <SidebarItem icon={<VoicePrintIcon />} text="Text to speech"/>
+        <SidebarItem icon={<VoicePrintIcon />} text="Text to speech" />
         <SidebarItem icon={<WebcamIcon />} text="Speech to text" />
       </div>
 
@@ -37,7 +38,7 @@ export default function Sidebar() {
           </ul>
         </div>
 
-        <div className="theme-switch__wrapper"></div>
+        <ThemeSwitcher />
       </div>
     </div>
   );
