@@ -105,14 +105,19 @@ body {
 .quill {
   display: flex;
   flex-direction: column-reverse;
-  height: 500px;
+  height: calc(100vh - 16.65rem);
 }
 
 .ql-toolbar.ql-snow {
   border: none;
-  border-top: 1px solid #EDEDED;
+  border-top: 1px solid #ededed;
+  padding-top: 1.5rem;
 }
 
 .ql-container.ql-snow {
   border: none;
+}
+
+.ql-container {
+  font-family: "Inter";
 }

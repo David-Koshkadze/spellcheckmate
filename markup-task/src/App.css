@@ -196,9 +196,25 @@ header {
 
 .editor__container {
   margin-top: 1rem;
-  margin-left: 2rem;
+  margin-left: 4rem;
+  max-width: 900px;
+  position: relative;
+  border: 1px solid green;
 }
 
 .editor__count__box {
+  position: absolute;
+  right: -2rem;
+  bottom: -0.5rem;
   background-color: #fff;
+  padding: 0.5rem 1.25rem;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.logo-icon {
+  position: absolute;
+  right: 4rem;
+  bottom: 4rem;
 }

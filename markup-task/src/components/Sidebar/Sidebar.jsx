@@ -12,9 +12,9 @@ export default function Sidebar() {
         <SidebarItem
           icon={<CheckABCIcon />}
           text="Spellchecker"
-          // active={true}
+          active={true}
         />
-        <SidebarItem icon={<VoicePrintIcon />} text="Text to speech" active={true}/>
+        <SidebarItem icon={<VoicePrintIcon />} text="Text to speech"/>
         <SidebarItem icon={<WebcamIcon />} text="Speech to text" />
       </div>
 

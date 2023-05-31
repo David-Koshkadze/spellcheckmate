@@ -5,9 +5,12 @@ import LanguageDropdown from "./components/LanguageDropdown";
 
 import { ReactComponent as CopyIcon } from "./assets/icons/copy-icon.svg";
 import { ReactComponent as DeleteIcon } from "./assets/icons/delete-icon.svg";
+import { ReactComponent as LogoIcon } from "./assets/icons/logo.svg";
+
 
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import TextEditor from "./components/TextEditor";
 
 const modules = {
   toolbar: [
@@ -59,15 +62,11 @@ function App() {
           </div>
         </div>
 
-        <div className="editor__container">
-          <ReactQuill
-            modules={modules}
-            theme="snow"
-            placeholder="Type or paste (⌘+V) something here."
-          />
-          <div className="editor__count__box">12 Characters, 3 words</div>
-        </div>
+        <TextEditor />
+        
       </section>
+      
+      <LogoIcon className="logo-icon"/>
     </>
   );
 }
