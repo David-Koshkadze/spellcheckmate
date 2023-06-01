@@ -1,8 +1,34 @@
 import React from "react";
+
+import { renderToString } from "react-dom/server";
+
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
+import { ReactComponent as BoldIcon } from "../assets/icons/bold.svg";
+import { ReactComponent as ItalicIcon } from "../assets/icons/italic.svg";
+import { ReactComponent as UnderlineIcon } from "../assets/icons/underline.svg";
+import { ReactComponent as OlIcon } from "../assets/icons/list-ordered.svg";
+import { ReactComponent as UlIcon } from "../assets/icons/list-unordered.svg";
+import { ReactComponent as H1Icon } from "../assets/icons/h-1.svg";
+import { ReactComponent as H2Icon } from "../assets/icons/h-2.svg";
+import { ReactComponent as LinkIcon } from "../assets/icons/link-m.svg";
+import { ReactComponent as FormatClearIcon } from "../assets/icons/format-clear.svg";
+
 import { Tooltip } from "react-tooltip";
+
+const icons = ReactQuill.Quill.import("ui/icons");
+
+// Overwrite Quill defauls icons
+icons.bold = renderToString(<BoldIcon />);
+icons.italic = renderToString(<ItalicIcon />);
+icons["underline"] = renderToString(<UnderlineIcon />);
+icons["list"]["ordered"] = renderToString(<OlIcon />);
+icons["list"]["bullet"] = renderToString(<UlIcon />);
+icons["header"]["1"] = renderToString(<H1Icon />);
+icons["header"]["2"] = renderToString(<H2Icon />);
+icons["link"] = renderToString(<LinkIcon />);
+icons["clean"] = renderToString(<FormatClearIcon />);
 
 class Counter {
   constructor(quill, options) {
@@ -87,7 +113,7 @@ const CustomToolbar = () => {
       ></button>
       <button
         className="ql-clean my-anchor-element"
-        data-tooltip-content="Clean"
+        data-tooltip-content="Clear Format"
         data-tooltip-place="bottom"
       ></button>
       <Tooltip
