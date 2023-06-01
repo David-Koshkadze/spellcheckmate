@@ -1,6 +1,8 @@
-import React, { useRef, useEffect } from "react";
-import ReactQuill, { Quill } from "react-quill";
+import React from "react";
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+
+import { Tooltip } from "react-tooltip";
 
 class Counter {
   constructor(quill, options) {
@@ -32,16 +34,73 @@ class Counter {
   }
 }
 
+function getTooltipHtml(title, shortcut) {
+  return `<div><strong>${title}</strong> <span>${shortcut}</span></div>`;
+}
+
 const CustomToolbar = () => {
   return (
     <div id="toolbar">
-      <button className="ql-bold"></button>
-      <button className="ql-italic"></button>
-      <button className="ql-underline">IC</button>
-      <button className="ql-list" value="ordered"></button>
-      <button className="ql-list" value="bullet"></button>
-      <button className="ql-header-1"></button>
-      <button className="ql-header-2"></button>
+      <button
+        className="ql-bold my-anchor-element"
+        data-tooltip-html={getTooltipHtml("Bold", "Ctrl + B")}
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-italic my-anchor-element"
+        data-tooltip-html={getTooltipHtml("Italic", "Ctrl + I")}
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-underline my-anchor-element"
+        data-tooltip-html={getTooltipHtml("Underline", "Ctrl + U")}
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-list my-anchor-element"
+        value="ordered"
+        data-tooltip-content="Ordered List"
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-list my-anchor-element"
+        value="bullet"
+        data-tooltip-content="Bullet List"
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-header my-anchor-element"
+        value="1"
+        data-tooltip-content="Heading 1"
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-header my-anchor-element"
+        value="2"
+        data-tooltip-content="Heading 2"
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-link my-anchor-element"
+        data-tooltip-content="Link"
+        data-tooltip-place="bottom"
+      ></button>
+      <button
+        className="ql-clean my-anchor-element"
+        data-tooltip-content="Clean"
+        data-tooltip-place="bottom"
+      ></button>
+      <Tooltip
+        anchorSelect=".my-anchor-element"
+        delayShow={100}
+        delayHide={200}
+        style={{
+          background: "#001849",
+          borderRadius: "4px",
+          padding: "10px",
+          fontSize: "12px",
+        }}
+      />
     </div>
   );
 };
