@@ -65,6 +65,7 @@ class TextProcess {
       const lastValidIndex = findLastValidIndex(slice, 80);
 
       const sentence = this.text.substring(0, lastValidIndex + 1);
+      console.log("Sent text", sentence)
       sendToBackend(sentence);
 
       this.text = this.text.substring(lastValidIndex + 1).trim();

@@ -30,6 +30,7 @@ icons["header"]["2"] = renderToString(<H2Icon />);
 icons["link"] = renderToString(<LinkIcon />);
 icons["clean"] = renderToString(<FormatClearIcon />);
 
+// implement charachter counting
 class Counter {
   constructor(quill, options) {
     this.quill = quill;
@@ -61,7 +62,8 @@ class Counter {
 }
 
 function getTooltipHtml(title, shortcut) {
-  return `<div><strong>${title}</strong> <span>${shortcut}</span></div>`;
+  let cut = shortcut ? `<span>${shortcut}</span>` : "";
+  return `<div><strong>${title}</strong> ${cut}</div>`;
 }
 
 const CustomToolbar = () => {
@@ -85,35 +87,35 @@ const CustomToolbar = () => {
       <button
         className="ql-list my-anchor-element"
         value="ordered"
-        data-tooltip-content="Ordered List"
+        data-tooltip-html={getTooltipHtml("Ordered List")}
         data-tooltip-place="bottom"
       ></button>
       <button
         className="ql-list my-anchor-element"
         value="bullet"
-        data-tooltip-content="Bullet List"
+        data-tooltip-html={getTooltipHtml("Unordered List")}
         data-tooltip-place="bottom"
       ></button>
       <button
         className="ql-header my-anchor-element"
         value="1"
-        data-tooltip-content="Heading 1"
+        data-tooltip-html={getTooltipHtml("Heading 1")}
         data-tooltip-place="bottom"
       ></button>
       <button
         className="ql-header my-anchor-element"
         value="2"
-        data-tooltip-content="Heading 2"
+        data-tooltip-html={getTooltipHtml("Heading 2")}
         data-tooltip-place="bottom"
       ></button>
       <button
         className="ql-link my-anchor-element"
-        data-tooltip-content="Link"
+        data-tooltip-html={getTooltipHtml("Link")}
         data-tooltip-place="bottom"
       ></button>
       <button
         className="ql-clean my-anchor-element"
-        data-tooltip-content="Clear Format"
+        data-tooltip-html={getTooltipHtml("Clear Formatting")}
         data-tooltip-place="bottom"
       ></button>
       <Tooltip

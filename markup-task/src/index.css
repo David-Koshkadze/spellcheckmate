@@ -142,3 +142,7 @@ body {
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
   color: #09121F !important;
 }
+
+.ql-editor.ql-blank::before {
+  font-style: normal;
+}

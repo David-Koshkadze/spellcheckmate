@@ -6,6 +6,7 @@ import LanguageDropdown from "./components/LanguageDropdown";
 import { ReactComponent as CopyIcon } from "./assets/icons/copy-icon.svg";
 import { ReactComponent as DeleteIcon } from "./assets/icons/delete-icon.svg";
 import { ReactComponent as LogoIcon } from "./assets/icons/logo.svg";
+import { ReactComponent as ChromeIcon} from "./assets/icons/icon-chrome.svg"
 
 import TextEditor from "./components/TextEditor";
 
@@ -17,7 +18,7 @@ function App() {
         <nav className="navbar">
           <div className="flex-align-center gap-4">
             <button className="btn btn-secondary flex-align-center gap-2">
-              <img src="icons/icon-chrome.svg" alt="icon-chrome" />
+              <ChromeIcon />
               <span>Add to Chrome</span>
             </button>
             <button className="btn btn-primary">Upgrade to Pro</button>
