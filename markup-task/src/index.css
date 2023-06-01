@@ -100,3 +100,49 @@ body {
   line-height: 28px;
   color: #606060;
 }
+
+/* Overwrite Quill's default styles */
+.quill {
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100vh - 20rem);
+}
+
+.ql-toolbar.ql-snow {
+  border: none;
+  border-top: 1px solid #ededed;
+  padding-top: 1.5rem;
+}
+
+.ql-container.ql-snow {
+  border: none;
+}
+
+.ql-container {
+  font-family: "Inter";
+}
+
+.ql-snow.ql-toolbar button {
+  color: #606060 !important;
+}
+
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow .ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+  color: #09121F !important;
+}
+
+.ql-editor.ql-blank::before {
+  font-style: normal;
+}
