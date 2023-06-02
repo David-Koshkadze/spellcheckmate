@@ -5,20 +5,8 @@ class TextProcess {
     this.token = "";
   }
 
-  start() {
-    const punctuationMarks = [".", "!", "?", ";", ",", " "];
-
-    const findLastValidIndex = (textSlice, maxLength) => {
-      for (let i = maxLength; i >= 0; i--) {
-        if (
-          textSlice[i] === undefined ||
-          punctuationMarks.includes(textSlice[i])
-        ) {
-          return i;
-        }
-      }
-      return maxLength;
-    };
+  async start() {
+    const punctuationPriority = [".", "!", "?", ";", ",", " "];
 
     const sendToBackend = async (sentence) => {
       const model = {
@@ -44,7 +32,8 @@ class TextProcess {
         if (response.ok) {
           const result = await response.json();
           const sourceUrl = result.AudioFilePath;
-          handleBackendResponse(sourceUrl);
+          // handleBackendResponse(sourceUrl);
+          this.onresult({ sourceUrl });
         } else {
           throw new Error("Request failed");
         }
@@ -53,34 +42,57 @@ class TextProcess {
       }
     };
 
-    const handleBackendResponse = (sourceUrl) => {
-      if (this.onresult) {
-        this.onresult({ sourceUrl });
+    let currentIndex = 0;
+
+    while (currentIndex < this.text.length) {
+      let endIndex = currentIndex + 230;
+      if (endIndex > this.text.length) {
+        endIndex = this.text.length;
       }
-    };
 
-    while (this.text.length > 0) {
-      const endIndex = Math.min(this.text.length, 230);
-      const slice = this.text.substring(0, endIndex);
-      const lastValidIndex = findLastValidIndex(slice, 80);
+      let slice = this.text.substring(currentIndex, endIndex);
+      let lastValidIndex = endIndex - currentIndex - 1;
 
-      const sentence = this.text.substring(0, lastValidIndex + 1);
-      console.log("Sent text", sentence)
-      sendToBackend(sentence);
+      if (lastValidIndex >= 150) {
+        const remainingSlice = slice.substring(150);
+        let cutIndex = -1;
 
-      this.text = this.text.substring(lastValidIndex + 1).trim();
+        for (let i = 0; i < punctuationPriority.length; i++) {
+          const punctuationIndex = remainingSlice.indexOf(
+            punctuationPriority[i]
+          );
+          if (
+            punctuationIndex >= 0 &&
+            punctuationIndex <= lastValidIndex - 150
+          ) {
+            cutIndex = punctuationIndex + 150;
+            break;
+          }
+        }
+
+        if (cutIndex >= 0) {
+          lastValidIndex = cutIndex;
+          slice = slice.substring(0, cutIndex + 1);
+        }
+      }
+
+      const sentence = slice.trim();
+      currentIndex += lastValidIndex + 1;
+
+      console.log("Sent text: ", sentence)
+
+      await sendToBackend(sentence);
     }
   }
 }
 
 const cl = new TextProcess();
 cl.text =
-  "გრძელი ტექსტი დასამუშავებლად. სასვენი ნიშნებით და სხვა სიმბოლოებით.გრძელი ტექსტი დასამუშავებლად. სასვენი ნიშნებით და სხვა სიმბოლოებით. ასევე დავამატე სხვადასხვა სიმბოლოები, ყოჩაღთ ძალიან მომეწონა ყველაფერი, მოლოდინებს გადააჭარბა.";
+  "ოქტომბერში ისრაელის ხელისუფლებამ მწვანე პასპორტები გააუქმა მათთვის, ვინც ექვს თვეზე მეტი ხნის წინ ორჯერადად აიცრა. ახლა უკვე ეს დოკუმენტი მხოლოდ ბუსტერ დოზის შემდეგ გაიცემა. საჯარო ღონისძიებებზე დასასწრებად და სხვა თავშეყრის ადგილებში შესასვლელად.";
 
-cl.token = "" // აქ ჩასვავთ ავტორიზაციის ტოკენს
+cl.token = ""; // აქ ჩასვავთ ავტორიზაციის ტოკენს
 
 cl.onresult = function (result) {
-  // console.log("Sent to backend: ", sentence);
   const MyResult = result.sourceUrl;
 
   console.log(MyResult);
